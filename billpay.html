@@ -53,11 +53,17 @@
     <div class="relative max-w-7xl mx-auto px-5 text-center">
       <p class="text-sm text-white/60 reveal"><a href="index.html" class="hover:text-orange-400">Home</a> / Bill Pay</p>
       <h1 class="font-display text-4xl md:text-6xl font-extrabold mt-3 reveal" data-delay="100"><span class="text-fire">Bill Pay</span></h1>
-      <p class="mt-4 text-white/70 max-w-2xl mx-auto reveal" data-delay="200">Pay your Aguntech internet bill easily with bKash.</p>
+      <p class="mt-4 text-white/70 max-w-2xl mx-auto reveal" data-delay="200">Pay your Aguntech internet bill easily with bKash or Nagad.</p>
     </div>
   </section>
 
-  <section class="max-w-6xl mx-auto px-5 pb-5 mt-10 lg:mt-20 grid md:grid-cols-2 gap-8">
+  <section class="max-w-6xl mx-auto px-5 pb-5 mt-5 lg:mt-20 gap-8">
+    <div class="text-center mb-4 reveal">
+      <p class="text-sm uppercase tracking-widest text-white/60">More ways to pay</p>
+      <h2 id="nagad-payment-title" class="font-display text-3xl md:text-4xl font-bold mt-2">Bkash <span class="text-fire">Payment</span></h2>
+      <p class="text-white/70 mt-3">Pay your internet bill using the bKash-app or the *247# menu.</p>
+    </div>
+    <div class="max-w-6xl mx-auto px-5 pb-5 mt-10 lg:mt-20 grid md:grid-cols-2 gap-8">
     <div class="glass card-hover p-6 reveal">
       <h3 class="font-display text-xl font-bold mb-4">bKash App <span class="text-fire">Payment</span></h3>
       <img src="https://aguntech.com/images/billpay/bKash-app.png" alt="bKash app payment" class="w-full rounded-xl" />
@@ -66,6 +72,35 @@
       <h3 class="font-display text-xl font-bold mb-4">bKash Phone <span class="text-fire">Payment</span></h3>
       <img src="https://aguntech.com/images/billpay/bKash-phone.png" alt="bKash phone payment" class="w-full rounded-xl" />
     </div>
+    </div>
+  </section>
+
+  <section class="max-w-6xl mx-auto px-5 py-10" aria-labelledby="nagad-payment-title">
+    <div class="text-center mb-8 reveal">
+      <p class="text-sm uppercase tracking-widest text-white/60">More ways to pay</p>
+      <h2 id="nagad-payment-title" class="font-display text-3xl md:text-4xl font-bold mt-2">Nagad <span class="text-fire">Payment</span></h2>
+      <p class="text-white/70 mt-3">Pay your internet bill using the Nagad app or the *167# menu.</p>
+    </div>
+
+    <div class="nagad-guide-grid">
+      <article class="glass nagad-panel reveal">
+        <h3 class="font-display text-xl font-bold mb-4">Nagad App <span class="text-fire">Payment</span></h3>
+        <figure class="nagad-guide-image">
+          <a href="assets/images/nagad-app-payment-guide.png" target="_blank" rel="noopener noreferrer" aria-label="Open the Nagad app payment guide in full size">
+            <img src="assets/images/nagad-app-payment-guide.png" alt="Steps for paying an Aguntech bill using the Nagad app" class="w-full rounded-xl" />
+          </a>
+        </figure>
+      </article>
+      <article class="glass nagad-panel reveal" data-delay="150">
+        <h3 class="font-display text-xl font-bold mb-4">Nagad USSD <span class="text-fire">Payment</span></h3>
+        <figure class="nagad-guide-image">
+          <a href="assets/images/nagad-ussd-payment-guide.png" target="_blank" rel="noopener noreferrer" aria-label="Open the Nagad USSD payment guide in full size">
+            <img src="assets/images/nagad-ussd-payment-guide.png" alt="Steps for paying an Aguntech bill through the Nagad *167# USSD menu" class="w-full rounded-xl" />
+          </a>
+        </figure>
+      </article>
+    </div>
+    <p class="nagad-note">Please verify your Aguntech account or meter number and bill amount before confirming payment.</p>
   </section>
 
   <!-- ===== Subscribe ===== -->
@@ -76,12 +111,12 @@
         <h3 class="font-display text-3xl font-bold">Subscribe for Updates</h3>
         <p class="text-white/70 mt-2">By subscribing to our mailing list you will always be updated.</p>
       </div>
-      <form data-demo class="relative mt-6 md:mt-0 flex gap-3 w-full md:w-auto">
+      <form data-subscribe-form class="relative mt-6 md:mt-0 lg:flex gap-3 w-full md:w-auto">
         <input type="hidden" name="access_key" value="4f5fbbf2-bedd-427b-933c-81ef48e893c9" />
-          <input type="text"required placeholder="Full Name"class="input md:w-72"/>
-          <input type="email"required placeholder="Your email"class="input md:w-72"/>
-          <button class="btn-fire whitespace-nowrap">Subscribe Now</button>
-          <p class="form-msg hidden text-green-400 text-sm"></p>
+          <input type="text" name="name" required placeholder="Full Name" class="input mt-3 md:w-72"/>
+          <input type="email" name="email" required placeholder="Your email" class="input mt-3 md:w-72"/>
+          <button type="submit" class="btn-fire whitespace-nowrap mt-3">Subscribe Now</button>
+          <p class="form-msg hidden text-sm" role="status" aria-live="polite"></p>
         </form>
     </div>
   </section>

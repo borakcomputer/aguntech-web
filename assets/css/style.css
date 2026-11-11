@@ -105,3 +105,68 @@ form[data-demo]{min-width:0}
   form[data-demo]>.input,form[data-demo]>.btn-fire{width:100%}
   .glass{border-radius:1rem}
 }
+
+
+
+
+
+
+
+/* ===== Icon animation: Float + Wiggle ===== */
+.icon-anim {
+  animation: iconFloat 3s ease-in-out infinite;
+  transition: box-shadow 0.4s ease, background-color 0.4s ease;
+}
+
+@keyframes iconFloat {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-6px); }
+}
+
+.card-hover:hover .icon-anim {
+  animation: iconWiggle 0.6s ease forwards;
+  background-color: rgba(249, 115, 22, 0.25);
+  box-shadow: 0 0 25px rgba(249, 115, 22, 0.45);
+}
+
+@keyframes iconWiggle {
+  0%   { transform: rotate(0) scale(1); }
+  25%  { transform: rotate(-12deg) scale(1.15); }
+  50%  { transform: rotate(10deg) scale(1.15); }
+  75%  { transform: rotate(-6deg) scale(1.1); }
+  100% { transform: rotate(0) scale(1.1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .icon-anim { animation: none; }
+}
+
+.nagad-guide-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.5rem}
+.nagad-guide-image{margin:0;overflow:hidden;border:1px solid rgba(255,255,255,.12);border-radius:1rem;box-shadow:0 20px 50px -28px rgba(255,70,70,.55)}
+.nagad-guide-image img{display:block;height:auto}
+.nagad-payment-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.5rem}
+.nagad-panel{min-width:0;padding:1.5rem;border-color:rgba(255,70,70,.25);background:linear-gradient(145deg,rgba(49,20,35,.82),rgba(18,26,51,.88))}
+.nagad-heading{display:flex;align-items:center;gap:.8rem;padding-bottom:1rem;border-bottom:1px solid rgba(255,255,255,.12);font-family:'Syne',sans-serif;font-size:1.35rem;font-weight:700}
+.nagad-icon{display:inline-grid;flex:none;width:2.75rem;height:2.75rem;place-items:center;border-radius:50%;background:linear-gradient(145deg,#ff3030,#c90000);color:#fff;font-family:'Outfit',sans-serif;font-size:1.35rem;font-weight:700;box-shadow:0 6px 18px rgba(220,0,0,.3)}
+.nagad-phone-icon{font-size:1rem}
+.nagad-intro{margin:1rem 0;color:rgba(255,255,255,.72)}
+.nagad-steps{display:grid;gap:.75rem;list-style:none;padding:0;margin:0}
+.nagad-app-steps{grid-template-columns:repeat(2,minmax(0,1fr))}
+.nagad-ussd-steps{grid-template-columns:repeat(2,minmax(0,1fr))}
+.nagad-steps li{display:flex;min-width:0;flex-direction:column;gap:.4rem;padding:1rem;border:1px solid rgba(255,100,100,.2);border-radius:.9rem;background:rgba(255,255,255,.045)}
+.nagad-step-number{align-self:flex-start;border-radius:999px;background:linear-gradient(100deg,#ff3030,#d50000);padding:.25rem .7rem;color:#fff;font-size:.8rem;font-weight:700}
+.nagad-steps li strong{font-size:1rem}
+.nagad-steps li>span:last-child{color:rgba(255,255,255,.7);font-size:.9rem;line-height:1.5;overflow-wrap:anywhere}
+.nagad-number{color:#ffb347;font-weight:700}
+.nagad-dial-button{display:flex;align-items:center;justify-content:center;gap:.6rem;margin-top:1rem;background:linear-gradient(135deg,#ff3030,#c90000);color:#fff;box-shadow:0 10px 30px -10px rgba(220,0,0,.65)}
+.nagad-dial-button:hover{box-shadow:0 18px 40px -10px rgba(220,0,0,.8)}
+.nagad-note{margin-top:1.25rem;text-align:center;color:rgba(255,255,255,.65);font-size:.9rem}
+@media(max-width:767px){
+  .nagad-guide-grid{grid-template-columns:1fr}
+  .nagad-payment-grid{grid-template-columns:1fr}
+}
+@media(max-width:479px){
+  .nagad-panel{padding:1rem}
+  .nagad-app-steps,.nagad-ussd-steps{grid-template-columns:1fr}
+  .nagad-heading{font-size:1.15rem}
+}

@@ -61,12 +61,14 @@ document.querySelectorAll('[data-filter]').forEach(b=>b.addEventListener('click'
 const lb=document.getElementById('lightbox');
 document.querySelectorAll('.gallery-item img').forEach(img=>img.addEventListener('click',()=>{if(!lb)return;lb.querySelector('img').src=img.src;lb.classList.remove('hidden');lb.classList.add('flex')}));
 lb?.addEventListener('click',()=>{lb.classList.add('hidden');lb.classList.remove('flex')});
-// Contact form email delivery
-document.querySelectorAll('form[data-contact-form]').forEach(form=>form.addEventListener('submit',async e=>{
+// Web3Forms email delivery
+document.querySelectorAll('form[data-contact-form], form[data-subscribe-form]').forEach(form=>form.addEventListener('submit',async e=>{
  e.preventDefault();
  const message=form.querySelector('.form-msg');
  const button=form.querySelector('button[type="submit"]');
  if(!message||!button)return;
+ const isSubscribe=form.matches('[data-subscribe-form]');
+ const buttonLabel=button.textContent;
  message.textContent='';
  message.classList.add('hidden');
  message.classList.remove('text-green-400','text-red-400');
@@ -80,20 +82,18 @@ document.querySelectorAll('form[data-contact-form]').forEach(form=>form.addEvent
   });
   const result=await response.json();
   if(!response.ok||!result.success)throw new Error(result.message||'Unable to send your message.');
-  message.textContent='আপনার বার্তা পাঠানো হয়েছে। ধন্যবাদ!';
+  message.textContent=isSubscribe?'সাবস্ক্রিপশন সফল হয়েছে। ধন্যবাদ!':'আপনার বার্তা পাঠানো হয়েছে। ধন্যবাদ!';
   message.classList.add('text-green-400');
   form.reset();
  }catch(error){
-  console.error('Contact form submission failed:',error);
-  message.textContent='বার্তা পাঠানো যায়নি। অনুগ্রহ করে আবার চেষ্টা করুন।';
+  console.error('Web3Forms submission failed:',error);
+  message.textContent=isSubscribe?'সাবস্ক্রিপশন করা যায়নি। অনুগ্রহ করে আবার চেষ্টা করুন।':'বার্তা পাঠানো যায়নি। অনুগ্রহ করে আবার চেষ্টা করুন।';
   message.classList.add('text-red-400');
  }finally{
   message.classList.remove('hidden');
   button.disabled=false;
-  button.textContent='Send Message';
+  button.textContent=buttonLabel;
  }
 }));
-// Demo forms
-document.querySelectorAll('form[data-demo]').forEach(f=>f.addEventListener('submit',e=>{e.preventDefault();const m=f.querySelector('.form-msg');if(m){m.textContent='এই ফর্মটি এখনো ইমেইল সার্ভারের সাথে সংযুক্ত নয়; তথ্য পাঠানো হয়নি।';m.classList.remove('hidden')}}));
 // Year
 document.querySelectorAll('.year').forEach(y=>y.textContent=new Date().getFullYear());
